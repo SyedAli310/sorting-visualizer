@@ -1,6 +1,6 @@
 
 const array = document.querySelector('.array')
-const delay = 1000
+const delay = 300
 
 function showArr(arr){
     array.innerHTML=''
