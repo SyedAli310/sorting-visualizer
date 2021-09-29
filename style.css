@@ -1,0 +1,19 @@
+.array{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+.array-el{
+    position: relative;
+    text-align: center;
+    border-radius: 2px;
+    padding: 0 5px;
+    transition: all ease 300ms;
+}
+
+/* .elt-label{
+    position:absolute;
+    top: -25px;
+    left: 50%;
+    transform: translate(-50%,0);
+} */
