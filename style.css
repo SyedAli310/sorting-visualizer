@@ -1,6 +1,6 @@
 .array{
     display: flex;
-    gap: 5px;
+    gap: 15px;
     justify-content: center;
 }
 .array-el{
