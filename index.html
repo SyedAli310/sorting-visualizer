@@ -28,24 +28,25 @@
   
   <title>Sorting Visualizer</title>
 
-  <body class="m-3 m-md-4 m-sm-4">
+  <body class="m-3 m-md-4 m-sm-4 bg-dark">
 
-  <main>
+  <main class="">
+
     <div class="controls py-4">
         <div class="settings mt-2 mb-4 row">
             <div class="speed-selection text-center col-lg-6 mb-4">
-                <label for="speed-range" class="form-label">Animation Speed <span class="badge badge-pill badge-dark text-light" id="speed-val"></span></label>
+                <label for="speed-range" class="form-label text-light">Animation Speed <span class="badge badge-pill badge-secondary text-light" id="speed-val"></span></label>
                 <br>
                 <input type="range" class="form-range" min="100" max="500" value="300" id="speed-range">
             </div>
             <div class="size-selection text-center col-lg-6 mb-4">
-                <label for="speed-range" class="form-label">Array Size <span class="badge badge-pill badge-dark text-light" id="size-val"></span></label>
+                <label for="speed-range" class="form-label text-light">Array Size <span class="badge badge-pill badge-secondary text-light" id="size-val"></span></label>
                 <br>
                 <input type="range" class="form-range" min="5" max="25" value="15" id="size-range">
             </div>
         </div>
         <div class="w-100 buttons mb-0 text-center">
-            <button class="btn btn-sm btn-dark mb-2" id="randomise" >Generate Array</button>
+            <button class="btn btn-sm btn-secondary mb-2" id="randomise" >Generate Array</button>
             <button class="btn btn-sm btn-success mb-2" id="bubble-sort" disabled>Bubble Sort</button>
         </div>
     </div>
@@ -54,7 +55,6 @@
         <h4 class="text-center mb-3" id="arr-header">Array</h4>
         <div class="array"></div>
     </div>
-
 
   </main>
 

@@ -21,8 +21,8 @@ $('#size-range').on('input',()=>{
 
 
 function showArr(arr){
-    $('#arr-header').css('color','black')
-    $('#arr-header').text('Array')
+    $('#arr-header').css('color','white')
+    $('#arr-header').text(`Array (${arr.length})`)
     $('#arr-header').css('opacity',1)
     $('#arr-header').css('visibility','visible')
     array.innerHTML=''
@@ -70,6 +70,8 @@ async function bubbleSort(){
             for(let j=0;j<array.length-i-1;j++){
                 array[j].style.background ='#5bc0de'
                 array[j].style.outline='thick ridge aqua'
+                labels[j].style.color = '#5bc0de'
+                labels[j+1].style.color = '#5bc0de'
                 array[j+1].style.background ='#5bc0de'
                 array[j+1].style.outline ='thick ridge aqua'
                 if(parseInt(array[j].style.height) > parseInt(array[j+1].style.height)){
@@ -81,6 +83,8 @@ async function bubbleSort(){
                 array[j].style.outline='none'
                 array[j+1].style.background = '#337ab7'
                 array[j+1].style.outline='none'
+                labels[j].style.color = 'white'
+                labels[j+1].style.color = 'white'
 
             }
             array[array.length-1-i].innerHTML = `<span class='elt-label text-monospace text-success'>${labels[labels.length-1-i].innerText}</span>`
@@ -93,7 +97,7 @@ async function bubbleSort(){
         array[0].style.color = 'white'
         array[0].style.outline = 'none'
     if(stopped==false){
-        console.log('in bubble sort');
+        //console.log('in bubble sort');
         $('#arr-header').css('color','#5cb85c')
         $('#arr-header').html(`<i class='fas fa-check fa-sm'></i> Sorting complete!`)
     }
