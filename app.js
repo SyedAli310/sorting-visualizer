@@ -63,7 +63,6 @@ function checkSorted(tempSorted) {
   let savedSortedArr = JSON.parse(localStorage.getItem("sortedArr"));
   //console.log(savedSortedArr,tempSorted);
   if (JSON.stringify(tempSorted) == JSON.stringify(savedSortedArr)) {
-    console.log("matched");
     return true;
   }
 }
@@ -130,7 +129,7 @@ $("#randomise").on("click", () => {
   for (let i = 0; i < size; i++) {
     arr.push(Math.ceil(Math.random() * 100 + 5));
   }
-  console.log("Array length: ", arr.length);
+  //console.log("Array length: ", arr.length);
   showArr(arr);
 
   let sorted = arr.sort(function (a, b) {
