@@ -3,13 +3,13 @@ const array = document.querySelector('.array')
 let delay = $('#speed-range').val()
 let size = $('#size-range').val()
 
-$('#speed-val').text($('#speed-range').val())
+$('#speed-val').text($('#speed-range').val()+' ms')
 $('#size-val').text($('#size-range').val())
 
 $('#speed-range').on('input',()=>{
     $('#speed-range').val($('#speed-range').val())
     delay = $('#speed-range').val()
-    $('#speed-val').text($('#speed-range').val())
+    $('#speed-val').text($('#speed-range').val()+' ms')
 })
 
 $('#size-range').on('input',()=>{
@@ -36,18 +36,6 @@ function showArr(arr){
     })
     
 }
-
-
-
-$('#randomise').on('click',()=>{
-    $('#bubble-sort').removeAttr('disabled')
-    arr = []
-    for(let i=0 ; i<size ; i++){
-        arr.push(Math.ceil(Math.random()*100 + 5))
-    }
-    console.log('Array length: ',arr.length);
-    showArr(arr)
-})
 
 function swap(el1,el2){
     let temp1 = el1.style.height
@@ -98,6 +86,18 @@ async function bubbleSort(){
     $('#arr-header').css('color','#5cb85c')
     $('#arr-header').html(`<i class='fas fa-check fa-sm'></i> Sorting complete!`)
 }
+
+$('#randomise').on('click',()=>{
+    $('#bubble-sort').removeAttr('disabled')
+    arr = []
+    for(let i=0 ; i<size ; i++){
+        arr.push(Math.ceil(Math.random()*100 + 5))
+    }
+    console.log('Array length: ',arr.length);
+    showArr(arr)
+    
+    $('.presentation-area').css('height', '300px');
+})
 
 $('#bubble-sort').on('click', async (e)=>{
     $('#arr-header').css('color','#5bc0de')
