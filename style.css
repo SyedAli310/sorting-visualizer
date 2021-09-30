@@ -1,7 +1,7 @@
 .array{
     display: flex;
     gap: 15px;
-    justify-content: center;
+    justify-content: start;
     padding-top: 25px;
     overflow-x: auto;
     overflow-y: auto;
