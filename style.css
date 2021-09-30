@@ -1,7 +1,12 @@
+#arr-header{
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease 300ms;
+}
 .array{
     display: flex;
     gap: 15px;
-    justify-content: start;
+    justify-content: center;
     padding-top: 25px;
     overflow-x: auto;
     overflow-y: auto;
@@ -21,3 +26,7 @@
     left: 50%;
     transform: translate(-50%,0);
 }
+
+
+
+

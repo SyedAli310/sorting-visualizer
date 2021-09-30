@@ -1,8 +1,29 @@
 
 const array = document.querySelector('.array')
-const delay = 200
+let delay = $('#speed-range').val()
+let size = $('#size-range').val()
+
+$('#speed-val').text($('#speed-range').val())
+$('#size-val').text($('#size-range').val())
+
+$('#speed-range').on('input',()=>{
+    $('#speed-range').val($('#speed-range').val())
+    delay = $('#speed-range').val()
+    $('#speed-val').text($('#speed-range').val())
+})
+
+$('#size-range').on('input',()=>{
+    $('#size-range').val($('#size-range').val())
+    size = $('#size-range').val()
+    $('#size-val').text($('#size-range').val())
+})
+
 
 function showArr(arr){
+    $('#arr-header').css('color','black')
+    $('#arr-header').text('Array')
+    $('#arr-header').css('opacity',1)
+    $('#arr-header').css('visibility','visible')
     array.innerHTML=''
     arr.forEach( el =>{
         const elt = document.createElement('span')
@@ -16,9 +37,11 @@ function showArr(arr){
     
 }
 
+
+
 $('#randomise').on('click',()=>{
     arr = []
-    for(let i=0 ; i<20 ; i++){
+    for(let i=0 ; i<size ; i++){
         arr.push(Math.ceil(Math.random()*100 + 5))
     }
     console.log('Array length: ',arr.length);
@@ -71,8 +94,12 @@ async function bubbleSort(){
     array[0].innerHTML = `<span class='elt-label text-monospace text-success'>${labels[0].innerText}</span>`
     array[0].style.background = '#5cb85c'
     array[0].style.color = 'white'
+    $('#arr-header').css('color','#5cb85c')
+    $('#arr-header').html(`<i class='fas fa-check fa-sm'></i> Sorting complete!`)
 }
 
 $('#bubble-sort').on('click', async (e)=>{
+    $('#arr-header').css('color','#5bc0de')
+    $('#arr-header').text('Sorting...')
     await bubbleSort()
 })
