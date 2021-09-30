@@ -69,9 +69,9 @@ async function bubbleSort(){
         for(let i=0;i<array.length-1;i++){
             for(let j=0;j<array.length-i-1;j++){
                 array[j].style.background ='#5bc0de'
-                array[j].style.outline='2px solid #001b1b'
+                array[j].style.outline='thick ridge aqua'
                 array[j+1].style.background ='#5bc0de'
-                array[j+1].style.outline ='2px solid #001b1b'
+                array[j+1].style.outline ='thick ridge aqua'
                 if(parseInt(array[j].style.height) > parseInt(array[j+1].style.height)){
                     await wait(delay)
                     swap(array[j],array[j+1])
