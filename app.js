@@ -40,6 +40,7 @@ function showArr(arr){
 
 
 $('#randomise').on('click',()=>{
+    $('#bubble-sort').removeAttr('disabled')
     arr = []
     for(let i=0 ; i<size ; i++){
         arr.push(Math.ceil(Math.random()*100 + 5))
