@@ -2,6 +2,7 @@
 const array = document.querySelector('.array')
 let delay = $('#speed-range').val()
 let size = $('#size-range').val()
+let stopped;
 
 $('#speed-val').text($('#speed-range').val()+' ms')
 $('#size-val').text($('#size-range').val())
@@ -64,30 +65,42 @@ async function bubbleSort(){
     const array = document.querySelectorAll('.array-el')
     const labels = document.querySelectorAll('.elt-label')
 
-    for(let i=0;i<array.length-1;i++){
-        for(let j=0;j<array.length-i-1;j++){
-            array[j].style.background ='#5bc0de'
-            array[j+1].style.background ='#5bc0de'
-            if(parseInt(array[j].style.height) > parseInt(array[j+1].style.height)){
-                await wait(delay)
-                swap(array[j],array[j+1])
-                swap2(labels[j],labels[j+1])
+    
+        for(let i=0;i<array.length-1;i++){
+            for(let j=0;j<array.length-i-1;j++){
+                array[j].style.background ='#5bc0de'
+                array[j].style.outline='2px solid #001b1b'
+                array[j+1].style.background ='#5bc0de'
+                array[j+1].style.outline ='2px solid #001b1b'
+                if(parseInt(array[j].style.height) > parseInt(array[j+1].style.height)){
+                    await wait(delay)
+                    swap(array[j],array[j+1])
+                    swap2(labels[j],labels[j+1])
+                }
+                array[j].style.background = '#337ab7'
+                array[j].style.outline='none'
+                array[j+1].style.background = '#337ab7'
+                array[j+1].style.outline='none'
+
             }
-            array[j].style.background = '#337ab7'
-            array[j+1].style.background = '#337ab7'
+            array[array.length-1-i].innerHTML = `<span class='elt-label text-monospace text-success'>${labels[labels.length-1-i].innerText}</span>`
+            array[array.length-1-i].style.background = '#5cb85c'
+            array[array.length-1-i].style.color = 'white'
+            array[array.length-1-i].style.outline = 'none'
         }
-        array[array.length-1-i].innerHTML = `<span class='elt-label text-monospace text-success'>${labels[labels.length-1-i].innerText}</span>`
-        array[array.length-1-i].style.background = '#5cb85c'
-        array[array.length-1-i].style.color = 'white'
+        array[0].innerHTML = `<span class='elt-label text-monospace text-success'>${labels[0].innerText}</span>`
+        array[0].style.background = '#5cb85c'
+        array[0].style.color = 'white'
+        array[0].style.outline = 'none'
+    if(stopped==false){
+        console.log('in bubble sort');
+        $('#arr-header').css('color','#5cb85c')
+        $('#arr-header').html(`<i class='fas fa-check fa-sm'></i> Sorting complete!`)
     }
-    array[0].innerHTML = `<span class='elt-label text-monospace text-success'>${labels[0].innerText}</span>`
-    array[0].style.background = '#5cb85c'
-    array[0].style.color = 'white'
-    $('#arr-header').css('color','#5cb85c')
-    $('#arr-header').html(`<i class='fas fa-check fa-sm'></i> Sorting complete!`)
 }
 
 $('#randomise').on('click',()=>{
+    stopped=true
     $('#bubble-sort').removeAttr('disabled')
     arr = []
     for(let i=0 ; i<size ; i++){
@@ -96,11 +109,13 @@ $('#randomise').on('click',()=>{
     console.log('Array length: ',arr.length);
     showArr(arr)
     
-    $('.presentation-area').css('height', '300px');
+    $('.presentation-area').css('height', '400px');
 })
 
 $('#bubble-sort').on('click', async (e)=>{
-    $('#arr-header').css('color','#5bc0de')
+    stopped=false
+    $('#bubble-sort').attr('disabled','disabled')
+    $('#arr-header').css('color','#337AB7')
     $('#arr-header').text('Sorting...')
     await bubbleSort()
 })
