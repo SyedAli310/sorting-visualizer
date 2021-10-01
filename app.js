@@ -114,6 +114,12 @@ async function bubbleSort() {
   //console.log(tempSorted);
   if (checkSorted(tempSorted)) {
     //console.log(checkSorted(tempSorted));
+
+    for(let i=0;i<array.length;i++){
+      console.log('hee');
+      array[i].innerHTML = `<span class='elt-label text-monospace text-white'>${labels[i].innerText}</span>`
+    }
+
     $("#arr-header").css("color", "#5cb85c");
     $("#arr-header").html(
       `<i class='fas fa-check fa-sm'></i> Sorting complete!`
