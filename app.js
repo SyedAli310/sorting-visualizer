@@ -116,7 +116,6 @@ async function bubbleSort() {
     //console.log(checkSorted(tempSorted));
 
     for(let i=0;i<array.length;i++){
-      console.log('hee');
       array[i].innerHTML = `<span class='elt-label text-monospace text-white'>${labels[i].innerText}</span>`
     }
 
