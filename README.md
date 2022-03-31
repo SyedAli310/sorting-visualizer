@@ -19,7 +19,7 @@ Open [index.html](https://github.com/SyedAli310/sorting-visualizer/blob/main/ind
 
 ## Deployed Link
 
-#### [Pop Game](https://bubble-sort-visualize.netlify.app/) - `https://bubble-sort-visualize.netlify.app/` ↗️
+#### [Sorting Visualize](https://bubble-sort-visualize.netlify.app/) - `https://bubble-sort-visualize.netlify.app/` ↗️
 
 ## Authors
 
